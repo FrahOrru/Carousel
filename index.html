@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <title>Carousel UI demo page</title>
+            <link rel="stylesheet" type="text/css" href="css/carousel.css">
+            <link rel="stylesheet" type="text/css" href="css/style.css">
+            <script type="text/javascript" src="js/carousel.js"></script>
+    </head>
+<body>
+
+<h1>Carousel demo page</h1>
+
+<div id="mycarousel1"></div>
+<div id="mycarousel2"></div>
+
+<script type="text/javascript">
+ const option1 = {
+     container:'mycarousel1',
+     icon:'collections',
+     title:'Fresh and just uploaded content >',
+     subtitle:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis condimentum nisl a tristique.',
+     fetchCards: function(chuckSize){
+         return {
+             image:'',
+             type:'video',
+             duration:3600,
+             title:'titolo',
+             cardinality:'single'
+         }
+     }
+ };
+ const carousel1 = new Carousel(option1)
+</script>
+
+<script type="text/javascript">
+    const option2 = {
+        container:'mycarousel2',
+        icon:'collections',
+        title:'Fresh and just uploaded content >',
+        subtitle:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis condimentum nisl a tristique.',
+        fetchCards: function(chuckSize){
+            return {
+                image:'',
+                type:'video',
+                duration:3600,
+                title:'titolo',
+                cardinality:'single'
+            }
+        }
+    };
+    const carousel2 = new Carousel(option2)
+   </script>
+
+</body>
+</html>
