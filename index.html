@@ -3,6 +3,7 @@
     <head>
             <meta charset="UTF-8">
             <title>Carousel UI demo page</title>
+            <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <link rel="stylesheet" type="text/css" href="css/carousel.css">
             <link rel="stylesheet" type="text/css" href="css/style.css">
             <script type="text/javascript" src="js/carousel.js"></script>
@@ -21,13 +22,12 @@
      title:'Fresh and just uploaded content >',
      subtitle:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis condimentum nisl a tristique.',
      fetchCards: function(chuckSize){
-         return {
-             image:'',
-             type:'video',
-             duration:3600,
-             title:'titolo',
-             cardinality:'single'
-         }
+        var Element = [];
+        Element.length = Math.floor(Math.random() * 10) + 5;
+         for (let i=0; i<Element.length; i++) {
+            Element[i] = {image:'',type:'img',title:'foto', cardinality:'single'};
+        }
+         return Element;
      }
  };
  const carousel1 = new Carousel(option1)
@@ -45,7 +45,8 @@
                 type:'video',
                 duration:3600,
                 title:'titolo',
-                cardinality:'single'
+                cardinality:'single',
+                tagName:'link'
             }
         }
     };
