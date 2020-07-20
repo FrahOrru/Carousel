@@ -1,47 +1,28 @@
 function Carousel(option){
+    
     var a = option;
-    var d = document.getElementById(a.container);
-
-    //title and subtitle carousel
-    var title = document.createElement("h4");
-    var text = document.createTextNode(a.title);
-    d.appendChild(title);
-    title.appendChild(text);
-
-    var subtitle = document.createElement("h5");
-    var textsub = document.createTextNode(a.subtitle);
-    d.appendChild(subtitle);
-    subtitle.appendChild(textsub);
-
-    //single item
     var arrayElem = a.fetchCards();
- 
-    arrayElem.forEach(element => {
+    function SingleItem(item) {
+        return `
+        <div class="singleItem">
+        <div>
+        <img src="${item.image}"></img>
+        </div>
+        <div>
+        <p> titolo ${item.title}</p>
+        </div>
+        </div>`
+    }
+    document.getElementById(a.container).innerHTML = 
+    `<div class="header"> 
+     <h4 class="title">${a.title}</h4>
+     <h5 class="subtitile"> ${a.subtitle} </h5> 
+     </div>
+     <div id="items">
+     ${arrayElem.map(SingleItem).join('')}
+     </div>`
 
-        var tag = document.createElement("div");
-        tag.setAttribute('id', "item")
-        d.appendChild(tag);
-
-        var e = document.getElementById("item");
-
-        var picture = document.createElement("img")
-        picture.setAttribute('src', element.image)
-        e.appendChild(picture);
-
-        // var content = document.createElement("div");
-        // tag.setAttribute('id', "content")
-        // e.appendChild(content);
-
-        // var f = document.getElementById("content");
-
-        var title = document.createTextNode(element.title);
-        e.appendChild(title);
-
-    });
-   
-  
-        
-  
+    
      
 }
 
