@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EAED,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,CAAC,CAAC,GAAG,CAAC,GAAG,CAAC,kBAAkB;CAC3C;;AAED,AAAA,GAAG,CAAC;EACA,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;CAChB",
     "sources": [
         "carousel.scss"
     ],
