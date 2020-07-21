@@ -12,8 +12,9 @@
 
 <h1>Carousel demo page</h1>
 
-<div id="mycarousel1"></div>
-<div id="mycarousel2"></div>
+<div id="mycarousel1" class="carousel" onmouseover="Visbuttons()"></div>
+<br></br>
+<div id="mycarousel2" class="carousel" onmouseover="Visbuttons()"></div>
 
 <script type="text/javascript">
 
@@ -29,6 +30,7 @@ var title = ['Fiori e lago',
             'Lago al tramonto',
             'Il mare',
             'Valle'];
+
  const option1 = {
      container:'mycarousel1',
      icon:'collections',
@@ -36,6 +38,7 @@ var title = ['Fiori e lago',
      subtitle:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis condimentum nisl a tristique.',
      fetchCards: function(chuckSize){
         var Element = [];
+        //casual lenght of the array
         Element.length = Math.floor(Math.random() * 10) + 5;
         
          for (let i=0; i<Element.length; i++) {
@@ -62,7 +65,7 @@ var title = ['Fiori e lago',
         subtitle:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis condimentum nisl a tristique.',
         fetchCards: function(chuckSize){
         var Element = [];
-        Element.length = Math.floor(Math.random() * 10) + 5;
+        Element.length = Math.floor(Math.random() * 20) + 10;
         
          for (let i=0; i<Element.length; i++) {
             //casual index of img array
