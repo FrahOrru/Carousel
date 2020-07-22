@@ -1,5 +1,8 @@
-function Carousel(option){
+var contatPage = 0;
+var partenza = 5;
+var incremento = 5;
 
+function Carousel(option){
     var a = option;
     var arrayElem = a.fetchCards();
 
@@ -23,49 +26,54 @@ function Carousel(option){
      <h4 class="title">${a.title}</h4>
      <h5 class="subtitile"> ${a.subtitle} </h5> 
      </div>
-     <button onclick="prev()" class="btn"> < </button>
+     <button onclick="prev('${a.container}')" class="btn"> < </button>
      <div id="items">
      ${arrayElem.map(SingleItem).join('')}
      </div>
-     <button onclick="next()" class="btn"> > </button>
-     </div>`
-
-    
-
-     slide(a.container)
-        
-    
-        
+     <button onclick="next('${a.container}')" class="btn"> > </button>
+     </div>
+    `
+    slide(a.container);
 }
 
 //BUTTONS
-function Visbuttons(){
-    var container = document.getElementById('#Carou') || document.body;
-    var btnArr = container.querySelectorAll('.btn');
-    for(var i = 0 ; i < btnArr.length; i++ )  {
-        btnArr[i].style.opacity = '1'; 
+
+function next(id){
+    var container = document.getElementById(id);
+    var slides = container.querySelectorAll('.singleItem');
+    if(partenza<=slides.length)
+    {
+        partenza += incremento;
+        slide(id);
     }
 }
+
+function prev(id){
+    if(partenza>5)
+    {
+        partenza-= incremento;
+        slide(id);
+    }
+}
+
 
 //slider
+
 function slide(containerID){
-    var container = document.getElementById(containerID) || document.body;
+    var container = document.getElementById(containerID);
     var slides = container.querySelectorAll('.singleItem');
-
-    for(var i = 0 ; i < slides.length; i++) {
-        if(i>5){
-            slides[i].style.display = 'none';
-        }
-    }
+    
+    ciclo(partenza,slides.length,slides);
 }
 
-function next(){
-    var container = document.getElementById(containerID) || document.body;
-    var slides = container.querySelectorAll('.singleItem');
-
-    for(var i = 5 ; i < (i+=5); i++) {
-        slides[i].style.display = 'inline-block';
+function ciclo(partenza, arrivo, vettore){
+    for(i = partenza ; i < arrivo; i++){
+        vettore[i].style.display = 'none';
+    };
+    for(i=0;i<(partenza-5);i++){
+        vettore[i].style.display = 'none';
+    }
+    for(i=(partenza-5); i < partenza;i++){
+        vettore[i].style.display='inline-block';
     }
 }
-
-
