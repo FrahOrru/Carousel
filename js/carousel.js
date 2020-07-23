@@ -6,6 +6,7 @@ function Carousel(option){
     var a = option;
     var arrayElem = a.fetchCards();
 
+    //single item cration
     function SingleItem(item) {
         return `
         <div class="singleItem">
@@ -13,12 +14,13 @@ function Carousel(option){
         <img src="${item.image}"></img>
         </div>
         <div>
-        <p> titolo: ${item.title}</p>
-        <p> tipo: ${item.type}</p>
+        <p> Titolo: ${item.title}</p>
+        <p> Tipo: ${item.type}</p>
         </div>
         </div>`
     }
 
+    //carousel body
     document.getElementById(a.container).innerHTML = 
     `
      <div id="Carou">
@@ -28,7 +30,7 @@ function Carousel(option){
      </div>
      <button onclick="prev('${a.container}')" class="btn"> < </button>
      <div id="items">
-     ${arrayElem.map(SingleItem).join('')}
+     ${arrayElem.map(SingleItem).join('')} 
      </div>
      <button onclick="next('${a.container}')" class="btn"> > </button>
      </div>
@@ -36,7 +38,8 @@ function Carousel(option){
     slide(a.container);
 }
 
-//BUTTONS
+
+//prev and next function for buttons 
 
 function next(id){
     var container = document.getElementById(id);
@@ -49,7 +52,7 @@ function next(id){
 }
 
 function prev(id){
-    if(partenza>5)
+    if(partenza>incremento)
     {
         partenza-= incremento;
         slide(id);
@@ -70,10 +73,10 @@ function ciclo(partenza, arrivo, vettore){
     for(i = partenza ; i < arrivo; i++){
         vettore[i].style.display = 'none';
     };
-    for(i=0;i<(partenza-5);i++){
+    for(i=0;i<(partenza-incremento);i++){
         vettore[i].style.display = 'none';
     }
-    for(i=(partenza-5); i < partenza;i++){
+    for(i=(partenza-incremento); i < partenza;i++){
         vettore[i].style.display='inline-block';
     }
 }
