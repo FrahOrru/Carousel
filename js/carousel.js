@@ -11,7 +11,7 @@ function Carousel(option){
         return `
         <div class="singleItem">
         <div>
-        <img src="${delay()}"></img>
+        <img src="${item.image}"></img>
         </div>
         <div>
         <p> Titolo: ${item.title}</p>
