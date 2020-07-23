@@ -11,7 +11,7 @@ function Carousel(option){
         return `
         <div class="singleItem">
         <div>
-        <img src="${item.image}"></img>
+        <img src="${delay()}"></img>
         </div>
         <div>
         <p> Titolo: ${item.title}</p>
@@ -19,6 +19,7 @@ function Carousel(option){
         </div>
         </div>`
     }
+    
 
     //carousel body
     document.getElementById(a.container).innerHTML = 
@@ -44,7 +45,7 @@ function Carousel(option){
 function next(id){
     var container = document.getElementById(id);
     var slides = container.querySelectorAll('.singleItem');
-    if(partenza<=slides.length)
+    if(partenza<slides.length)
     {
         partenza += incremento;
         slide(id);
